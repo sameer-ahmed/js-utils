@@ -1,0 +1,10 @@
+{
+  "name": "js-utils",
+  "version": "1.0.0",
+  "description": "Simple ES6 Js utils",
+  "main": "index.ts",
+  "repository": "https://github.com/sameer-ahmed/js-utils.git",
+  "author": "sameer-ahmed <me@sameerahmed.in>",
+  "license": "Apache",
+  "private": false
+}
