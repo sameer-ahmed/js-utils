@@ -2,7 +2,7 @@
  * @Author: Sameer Ahmed 
  * @Date: 2018-01-15 16:18:05 
  * @Last Modified by: Sameer Ahmed
- * @Last Modified time: 2018-02-01 16:18:02
+ * @Last Modified time: 2018-04-09 15:33:46
  */
 
 export const isBoolean = (value) => {
@@ -224,3 +224,36 @@ export const shallowEqual = (objA: mixed, objB: mixed): boolean => {
   
     return true;
   }
+
+  // Can use this method instead of Object.keys(obj).length
+  // As Object.keys(ojb) will consume more memory and cpu for creating and returning key array
+  // if includedNonEnumrable = true it will behave as default javascript, performance benifit only works with includedNonEnumrable = false value
+  
+  export const countKeys = (obj = {}, { includedNonEnumrable = false } = { includedNonEnumrable: false }) => {
+    if (includedNonEnumrable) {
+      return Object.getOwnPropertyNames(obj).length
+    }
+
+    let count = 0
+    for (let key in obj) {
+      count++
+    }
+
+    return count
+}
+
+// Can use this method instead of Object.keys(obj) and mapping function over returned keys array
+// As Object.keys(ojb) will consume more memory and cpu for creating and returning key array
+// if includedNonEnumrable = true it will behave as default javascript, performance benifit only works with includedNonEnumrable = false value
+
+export const onEachKey = (obj = {}, callback = (key) => ({}), { includedNonEnumrable = false } = { includedNonEnumrable: false }) => {
+    let keys = null
+  if (includedNonEnumrable) {
+      keys = obj.getOwnPropertyNames()
+  }
+
+  let it = keys !== null ? keys : obj
+  for (let key in it) {
+      callback(key)
+  }
+}
