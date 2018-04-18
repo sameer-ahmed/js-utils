@@ -233,7 +233,7 @@ export const shallowEqual = (objA: mixed, objB: mixed): boolean => {
   }
 
   export const getStartOfDay = (date) => {
-    if (!isValidDate()) {
+    if (!isValidDate(date)) {
         throw new Error('`date` is not a valid `Date` object')
     }
     if (Object.prototype.toString.call(date) !== '[object Date]') {
@@ -244,7 +244,7 @@ export const shallowEqual = (objA: mixed, objB: mixed): boolean => {
 }
 
 export const getEndOfDay = (date) => {
-    if (!isValidDate()) {
+    if (!isValidDate(date)) {
         throw new Error('`date` is not a valid `Date` object')
     }
     var startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
