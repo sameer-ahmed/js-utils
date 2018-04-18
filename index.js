@@ -224,3 +224,29 @@ export const shallowEqual = (objA: mixed, objB: mixed): boolean => {
   
     return true;
   }
+
+  export const isValidDate = (date) => {
+    if (date && Object.prototype.toString.call(date) === "[object Date]" && !isNaN(date)) {
+        return true
+    }
+    return false
+  }
+
+  export const getStartOfDay = (date) => {
+    if (!isValidDate()) {
+        throw new Error('`date` is not a valid `Date` object')
+    }
+    if (Object.prototype.toString.call(date) !== '[object Date]') {
+        date = new Date(date);
+    }
+    var startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    return startOfDay;
+}
+
+export const getEndOfDay = (date) => {
+    if (!isValidDate()) {
+        throw new Error('`date` is not a valid `Date` object')
+    }
+    var startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    return new Date(startOfDay.getTime() + 86399999);
+},
