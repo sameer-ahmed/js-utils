@@ -249,4 +249,4 @@ export const getEndOfDay = (date) => {
     }
     var startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     return new Date(startOfDay.getTime() + 86399999);
-},
+}
