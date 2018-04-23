@@ -1,5 +1,5 @@
 {
-  "name": "js-utils",
+  "name": "simply-js-utils",
   "version": "0.0.1",
   "description": "Simple ES6 Js utils",
   "main": "lib/index.js",
