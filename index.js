@@ -5,6 +5,13 @@
  * @Last Modified time: 2018-02-01 16:18:02
  */
 
+export const isNotNumeric = (value) => {
+    if (isUndefinedOrNullOrEmpty(value)) {
+        return true
+    }
+    return isNaN(Number(value))
+}
+
 export const isBoolean = (value) => {
     return typeof value == 'boolean'
 }
