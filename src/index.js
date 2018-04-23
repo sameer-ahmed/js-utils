@@ -204,7 +204,7 @@ export const debounce = (functionTobeCalled, interval = 600) => {
  * when any key has values which are not strictly equal between the arguments.
  * Returns true when the values of all keys are strictly equal.
  */
-export const shallowEqual = (objA: mixed, objB: mixed): boolean => {
+export const shallowEqual = (objA, objB) => {
     if (objA === objB) {
       return true;
     }
