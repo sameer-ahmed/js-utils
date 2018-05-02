@@ -20,7 +20,11 @@
   "scripts": {
     "compile": "node_modules/babel-cli/bin/babel.js --presets es2015 -d lib/ src/",
     "prepublish": "npm run compile",
-    "test": "jest"
+    "test": "jest && codecov"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "js",
