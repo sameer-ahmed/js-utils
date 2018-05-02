@@ -12,6 +12,7 @@
 //     getEndOfDay,
 //  } from "../lib/index"
 
+const moment = require('moment')
 const lib = require('../lib/index')
 /****************** isNotNumeric */
 test('Check 1.2.3 is not numaric', () => {
@@ -253,3 +254,69 @@ test('Check some.jpeg is image', () => {
     expect(lib.isImage('some.jpeg')).toBe(true)
 })
 /****************** isImage */
+
+/****************** getFileExtensionFromName */
+test('Check some.jpeg yeild .jpeg', () => {
+    expect(lib.getFileExtensionFromName('some.jpeg')).toBe('jpeg')
+})
+test('Check some yeild some', () => {
+    expect(lib.getFileExtensionFromName('some')).toBe('some')
+})
+/****************** getFileExtensionFromName */
+
+/****************** sleep */
+test('Check if it actually sleeps', async () => {
+    const time = new Date().getTime()
+    await lib.sleep(2000)
+    expect(new Date().getTime() - time).toBeGreaterThanOrEqual(2000)
+})
+/****************** sleep */
+
+/****************** shallowEqual */
+test('Check if it actually shallowEqual', () => {
+    const a = { b: { c: 'd'}, e: { f: { g: 'h' } } }
+    const b = { b: a.b, e: a.e }
+    a['e']['g'] = 'k'
+    expect(lib.shallowEqual(a, b)).toBe(true)
+})
+test('Check if not shallowEqual', () => {
+    const a = { b: { c: 'd'}, e: { f: { g: 'h' } } }
+    const b = { b: a.b, e: { ...a.e } }
+    expect(lib.shallowEqual(a, b)).toBe(false)
+})
+/****************** shallowEqual */
+
+/****************** isValidDate */
+test('Check if it isValidDate', () => {
+    expect(lib.isValidDate(new Date())).toBe(true)
+})
+test('Check if timestamp is not isValidDate', () => {
+    expect(lib.isValidDate(new Date().getTime())).toBe(false)
+})
+test('Check if null is not isValidDate', () => {
+    expect(lib.isValidDate(null)).toBe(false)
+})
+test('Check if undefined is not isValidDate', () => {
+    expect(lib.isValidDate()).toBe(false)
+})
+test('Check if string is not isValidDate', () => {
+    expect(lib.isValidDate('sameer')).toBe(false)
+})
+test('Check if object is not isValidDate', () => {
+    expect(lib.isValidDate({ b: { c: 'd'}, e: { f: { g: 'h' } } })).toBe(false)
+})
+/****************** isValidDate */
+
+/****************** getStartOfDay */
+test('Check if it getStartOfDay working', () => {
+    expect(lib.getStartOfDay(new Date()).getTime()).toBe(moment().startOf('day').toDate().getTime())
+})
+/****************** getStartOfDay */
+
+/****************** getEndOfDay */
+test('Check if it getStartOfDay working', () => {
+    expect(lib.getEndOfDay(new Date()).getTime()).toBe(moment().endOf('day').toDate().getTime())
+})
+/****************** getEndOfDay */
+
+

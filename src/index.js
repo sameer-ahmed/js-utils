@@ -96,32 +96,6 @@ export const logPerformance = (func, args) => {
     console.log("Call to function took " + (t1 - t0) + " milliseconds.")
 }
 
-export const definePropertyDeep = (target, key, property, { writable = true, enumerable = true, configurable = true }) => {
-    Object.defineProperty(target, key, {
-        value: !isNull(property) && isObejct(property) ? (function () {
-            let deepObject = {}
-            Object.keys(property).forEach((key) => {
-                deepObject[key] = definePropertyDeep(deepObject, key, property[key], { writable: writable, enumerable: enumerable, configurable: configurable })
-            })
-            return deepObject
-        }()) : property,
-        writable: writable,
-        enumerable: enumerable,
-        configurable: configurable
-    })
-    return target
-}
-
-export const definePropertiesDeep = (target = {}, propertyDefinations) => {
-
-    Object.keys(propertyDefinations).forEach((key) => {
-        let defination = propertyDefinations[key];
-        definePropertyDeep(target, key, defination.value, { writable: defination.writable, enumerbale: defination.enumerbale, configurable: defination.configurable })
-    })
-
-    return target;
-}
-
 export const getFileExtensionFromName = (fileName) => {
     let fileNameParts = fileName.split('.')
     return (fileNameParts.length > 0) ? fileNameParts.pop() : null
@@ -161,23 +135,8 @@ export const isImage = (fileName) => {
         mimeType.startsWith('image')
     )
 }
-export const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-export const debounce = (functionTobeCalled, interval = 600) => {
-    let isCalled = false, timer
-    return (...args) => {
-        if (!isCalled) {
-            isCalled = true
-            clearTimeout(timer)
-            timer = setTimeout(() => {
-                isCalled = false
-            }, interval)
-            return functionTobeCalled(...args)
-        }
-        return
-    }
+export const sleep = async (ms) => {
+    await new Promise(resolve => setTimeout(resolve, ms))
 }
 
 /**
