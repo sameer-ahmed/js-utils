@@ -20,11 +20,13 @@
   "scripts": {
     "compile": "node_modules/babel-cli/bin/babel.js --presets es2015 -d lib/ src/",
     "prepublish": "npm run compile",
-    "test": "jest && codecov"
+    "test": "jest --coverage",
+    "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "keywords": [
     "js",
@@ -38,6 +40,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "coveralls": "^3.0.1",
     "jest": "^22.4.3"
   }
 }
