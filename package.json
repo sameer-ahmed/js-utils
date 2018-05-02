@@ -24,7 +24,6 @@
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
-    "preset": "react-native",
     "testPathIgnorePatterns": [
       "/node_modules/"
     ]
