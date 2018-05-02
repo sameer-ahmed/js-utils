@@ -11,6 +11,5 @@ install:
 script:
   - yarn compile
   - yarn test
-  - codecov
 after_success:
   - yarn coverage
