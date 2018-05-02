@@ -59,3 +59,20 @@ typings/
 .env
 
 lib
+
+# OSX
+.DS_Store
+
+# IDE
+.idea
+
+# npm
+node_modules
+yarn.lock
+package-lock.json
+
+# jest
+coverage
+
+# dist
+dist
