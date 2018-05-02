@@ -281,7 +281,7 @@ test('Check if it actually shallowEqual', () => {
 })
 test('Check if not shallowEqual', () => {
     const a = { b: { c: 'd'}, e: { f: { g: 'h' } } }
-    const b = { b: a.b, e: { ...a.e } }
+    const b = { b: a.b, e: Object.assign({}, a.e) }
     expect(lib.shallowEqual(a, b)).toBe(false)
 })
 /****************** shallowEqual */
