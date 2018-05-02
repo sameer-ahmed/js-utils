@@ -1,3 +1,3 @@
-[![CircleCI](https://circleci.com/gh/sameer-ahmed/simply-js-utils/tree/master.svg?style=svg)](https://circleci.com/gh/sameer-ahmed/simply-js-utils/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/sameer-ahmed/simply-js-utils/badge.svg?branch=master)](https://coveralls.io/github/sameer-ahmed/simply-js-utils?branch=master)
 
 # simply-js-utils
