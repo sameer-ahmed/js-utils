@@ -1,11 +1,4 @@
 // import { 
-//     isEmptyObject,
-//     isUndefinedOrNull,
-//     isUndefinedOrNullOrEmpty,
-//     isUndefinedOrNullOrEmptyObject,
-//     isUndefinedOrNullOrEmptyList,
-//     isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList,
-//     copy,
 //     logPerformance,
 //     definePropertyDeep,
 //     definePropertiesDeep,
@@ -110,7 +103,6 @@ test('Check if undefined is not isEmpty', () => {
     expect(lib.isEmpty(obj.a)).toBe(false)
 })
 test('Check if "" is isEmpty', () => {
-    const obj = {}
     expect(lib.isEmpty('')).toBe(true)
 })
 /****************** isEmpty */
@@ -127,4 +119,137 @@ test('Check if new Array() is isEmptyList', () => {
 })
 /****************** isEmptyList */
 
+/****************** isEmptyObject */
+test('Check empty object is empty object', () => {
+    expect(lib.isEmptyObject({})).toBe(true)
+})
+test('Check if null is isEmptyObject', () => { // need to fix 
+    expect(lib.isEmptyObject(null)).toBe(true)
+})
+/****************** isEmptyObject */
 
+/****************** isUndefinedOrNull */
+test('Check empty object is not UndefinedOrNull', () => {
+    expect(lib.isUndefinedOrNull({})).toBe(false)
+})
+test('Check if null isUndefinedOrNull', () => { // need to fix 
+    expect(lib.isUndefinedOrNull(null)).toBe(true)
+})
+test('Check if undefined isUndefinedOrNull', () => { // need to fix 
+    const obj = {}
+    expect(lib.isUndefinedOrNull(obj.a)).toBe(true)
+})
+/****************** isUndefinedOrNull */
+
+/****************** isUndefinedOrNullOrEmpty */
+test('Check empty object is not isUndefinedOrNullOrEmpty', () => {
+    expect(lib.isUndefinedOrNullOrEmpty({})).toBe(false)
+})
+test('Check if null isUndefinedOrNullOrEmpty', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmpty(null)).toBe(true)
+})
+test('Check if undefined isUndefinedOrNullOrEmpty', () => { // need to fix 
+    const obj = {}
+    expect(lib.isUndefinedOrNullOrEmpty(obj.a)).toBe(true)
+})
+test('Check if "" isUndefinedOrNullOrEmpty', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmpty('')).toBe(true)
+})
+test('Check if "ranodm" is not isUndefinedOrNullOrEmpty', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmpty('ranodm')).toBe(false)
+})
+/****************** isUndefinedOrNullOrEmpty */
+
+/****************** isUndefinedOrNullOrEmptyObject */
+test('Check empty object is isUndefinedOrNullOrEmptyObject', () => {
+    expect(lib.isUndefinedOrNullOrEmptyObject({})).toBe(true)
+})
+test('Check if null isUndefinedOrNullOrEmptyObject', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyObject(null)).toBe(true)
+})
+test('Check if undefined isUndefinedOrNullOrEmptyObject', () => { // need to fix 
+    const obj = {}
+    expect(lib.isUndefinedOrNullOrEmptyObject(obj.a)).toBe(true)
+})
+test('Check if "" is not isUndefinedOrNullOrEmptyObject', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyObject('')).toBe(true)
+})
+test('Check if "ranodm" is not isUndefinedOrNullOrEmptyObject', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyObject('ranodm')).toBe(false)
+})
+test('Check if "ranodmObject" is not isUndefinedOrNullOrEmptyObject', () => { // need to fix 
+    const obj = { a: '' }
+    expect(lib.isUndefinedOrNullOrEmptyObject(obj)).toBe(false)
+})
+/****************** isUndefinedOrNullOrEmptyObject */
+
+/****************** isUndefinedOrNullOrEmptyList */
+test('Check empty object is not isUndefinedOrNullOrEmptyList', () => {
+    expect(lib.isUndefinedOrNullOrEmptyList({})).toBe(false)
+})
+test('Check if null isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyList(null)).toBe(true)
+})
+test('Check if undefined isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    const obj = {}
+    expect(lib.isUndefinedOrNullOrEmptyList(obj.a)).toBe(true)
+})
+test('Check if "" is not isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyList('')).toBe(true)
+})
+test('Check if "ranodm" is not isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyList('ranodm')).toBe(false)
+})
+test('Check if "ranodmObject" is not isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    const obj = { a: '' }
+    expect(lib.isUndefinedOrNullOrEmptyList(obj)).toBe(false)
+})
+test('Check if [] is not isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyList([])).toBe(true)
+})
+test('Check if ["a"] is not isUndefinedOrNullOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyList(['a'])).toBe(false)
+})
+/****************** isUndefinedOrNullOrEmptyList */
+
+/****************** isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList */
+test('Check empty object is isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => {
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList({})).toBe(true)
+})
+test('Check if null isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList(null)).toBe(true)
+})
+test('Check if undefined isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    const obj = {}
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList(obj.a)).toBe(true)
+})
+test('Check if "" is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList('')).toBe(true)
+})
+test('Check if "ranodm" is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList('ranodm')).toBe(false)
+})
+test('Check if "ranodmObject" is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    const obj = { a: '' }
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList(obj)).toBe(false)
+})
+test('Check if [] is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList([])).toBe(true)
+})
+test('Check if ["a"] is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', () => { // need to fix 
+    expect(lib.isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList(['a'])).toBe(false)
+})
+/****************** isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList */
+
+/****************** copy */
+test('Check if can copy or not', () => {
+    const obj = { a: { b: { c: { d: { e: 'f' } } } } }
+    expect(obj === lib.copy(obj)).toBe(false)
+})
+/****************** copy */
+
+/****************** isImage */
+test('Check some.jpeg is image', () => {
+    expect(lib.isImage('some.jpeg')).toBe(true)
+})
+/****************** isImage */

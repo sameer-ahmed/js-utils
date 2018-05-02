@@ -78,7 +78,7 @@ export const isUndefinedOrNullOrEmptyList = (value) => {
 }
 
 export const isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList = (value) => {
-    return isUndefinedOrNullOrEmpty(value) || isEmptyObject(obj) || isUndefinedOrNullOrEmptyList(value)
+    return isUndefinedOrNullOrEmpty(value) || isEmptyObject(value) || isUndefinedOrNullOrEmptyList(value)
 }
 
 export const copy = (value) => {
@@ -93,7 +93,7 @@ export const logPerformance = (func, args) => {
     let t0 = performance.now();
     func.apply(this, args)
     let t1 = performance.now();
-    console.tron.log("Call to function took " + (t1 - t0) + " milliseconds.")
+    console.log("Call to function took " + (t1 - t0) + " milliseconds.")
 }
 
 export const definePropertyDeep = (target, key, property, { writable = true, enumerable = true, configurable = true }) => {
@@ -154,29 +154,10 @@ export const getMimeTypeFromExtension = (extension) => {
 
     return mimeType
 }
-
-export const getIconTypeFromMimeType = (mimeType) => {
-    let iconType = null
-    switch (mimeType) {
-        case 'application/msword':
-        case 'application/pdf':
-        case 'application/vnd.ms-excel':
-            iconType = 'description'
-            break
-        case 'image/jpg':
-        case 'image/png':
-        case 'image/gif':
-            iconType = null
-    }
-
-    return iconType
-}
-
 export const isImage = (fileName) => {
-    let mimeType = this.getMimeTypeFromExtension(
-        this.getFileExtensionFromName(fileName))
+    let mimeType = getMimeTypeFromExtension(getFileExtensionFromName(fileName))
     return (
-        !this.isUndefinedOrNullOrEmpty(mimeType) &&
+        !isUndefinedOrNullOrEmpty(mimeType) &&
         mimeType.startsWith('image')
     )
 }
