@@ -1,7 +1,7 @@
 {
   "name": "simply-js-utils",
   "version": "0.0.4",
-  "description": "Simple ES6 Js utils",
+  "description": "Simple Js utils",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
@@ -20,7 +20,11 @@
   "scripts": {
     "compile": "node_modules/babel-cli/bin/babel.js --presets es2015 -d lib/ src/",
     "prepublish": "npm run compile",
-    "test": "jest"
+    "test": "jest && codecov"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "js",

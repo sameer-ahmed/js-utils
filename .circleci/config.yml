@@ -26,6 +26,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - npm install -g codecov
       - run: yarn install
 
       - save_cache:
@@ -39,4 +40,5 @@ jobs:
       # run test!
       - run: yarn test
 
-
+      # upload codecov report
+      - codecov
