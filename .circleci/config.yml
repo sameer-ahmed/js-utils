@@ -41,4 +41,4 @@ jobs:
       - run: yarn test
 test:
     post:
-      - bash <(curl -s https://codecov.io/bash)
+      - codecov
