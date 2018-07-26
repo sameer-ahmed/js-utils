@@ -243,6 +243,43 @@ test('Check if ["a"] is not isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList', (
 /****************** isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList */
 
 /****************** copy */
+test('Check if "sameer" is a string', () => {
+    expect(lib.isString("sameer")).toBe(true)
+})
+test('Check if "sameer ahmed" is a string', () => {
+    expect(lib.isString("sameer ahmed")).toBe(true)
+})
+test('Check if "1234" is a string', () => {
+    expect(lib.isString("1234")).toBe(true)
+})
+test('Check if "1234 5678" is a string', () => {
+    expect(lib.isString("1234 5678")).toBe(true)
+})
+test('Check if "1234 sameer" is a string', () => {
+    expect(lib.isString("1234 sameer")).toBe(true)
+})
+test('Check if "null" is a string', () => {
+    expect(lib.isString("null")).toBe(true)
+})
+test('Check if "s$%^&*()_+!@#32" is a string', () => {
+    expect(lib.isString("s$%^&*()_+!@#32")).toBe(true)
+})
+test('Check if "" is a string', () => {
+    expect(lib.isString("")).toBe(true)
+})
+test('Check if 321423 should not be a string', () => {
+    expect(lib.isString(321423)).toBe(false)
+})
+test('Check if undefined should not be a string', () => {
+    expect(lib.isString(undefined)).toBe(false)
+    expect(lib.isString()).toBe(false)
+})
+test('Check if null should not be a string', () => {
+    expect(lib.isString(null)).toBe(false)
+})
+/****************** copy */
+
+/****************** copy */
 test('Check if can copy or not', () => {
     const obj = { a: { b: { c: { d: { e: 'f' } } } } }
     expect(obj === lib.copy(obj)).toBe(false)

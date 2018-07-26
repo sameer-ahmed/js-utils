@@ -81,6 +81,10 @@ export const isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList = (value) => {
     return isUndefinedOrNullOrEmpty(value) || isEmptyObject(value) || isUndefinedOrNullOrEmptyList(value)
 }
 
+export const isString = (string) => {
+    return Object.prototype.toString.call(string) === "[object String]"
+}
+
 export const copy = (value) => {
     return Object.assign({}, value)
 }
