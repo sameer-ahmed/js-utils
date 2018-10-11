@@ -203,7 +203,7 @@ export const getEndOfDay = (date) => {
 }
 
 // default `_` will be replaced with ` `
-export const convertToCamleCase = (value = '', splitOn = '_', replaceWith = ' ') => {
+export const convertToCamelCase = (value = '', splitOn = '_', replaceWith = ' ') => {
     return value
         .split(splitOn)
         .map(it => it.charAt(0).toUpperCase() + it.substr(1).toLowerCase()).join(replaceWith)

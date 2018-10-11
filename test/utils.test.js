@@ -319,13 +319,13 @@ test('Check if getStartOfDay is working', () => {
 })
 /****************** getEndOfDay */
 
-/****************** convertToCamleCase */
-test('Check if convertToCamleCase working', () => {
-    expect(lib.convertToCamleCase('SAMEER_AHMED_SHEIKH')).toBe('Sameer Ahmed Sheikh')
-    expect(lib.convertToCamleCase('SAMEER_AHMED_SHEIKH', '_', '&&')).toBe('Sameer&&Ahmed&&Sheikh')
-    expect(lib.convertToCamleCase('SAMEER$$AHMED$$SHEIKH', '$$', '_')).toBe('Sameer_Ahmed_Sheikh')
-    expect(lib.convertToCamleCase('', '$$', '_')).toBe('')
-    expect(lib.convertToCamleCase('')).toBe('')
+/****************** convertToCamelCase */
+test('Check if convertToCamelCase working', () => {
+    expect(lib.convertToCamelCase('SAMEER_AHMED_SHEIKH')).toBe('Sameer Ahmed Sheikh')
+    expect(lib.convertToCamelCase('SAMEER_AHMED_SHEIKH', '_', '&&')).toBe('Sameer&&Ahmed&&Sheikh')
+    expect(lib.convertToCamelCase('SAMEER$$AHMED$$SHEIKH', '$$', '_')).toBe('Sameer_Ahmed_Sheikh')
+    expect(lib.convertToCamelCase('', '$$', '_')).toBe('')
+    expect(lib.convertToCamelCase('')).toBe('')
 })
 /****************** getEndOfDay */
 
