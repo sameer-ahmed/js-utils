@@ -81,6 +81,10 @@ export const isUndefinedOrNullOrEmptyOrEmptyObjectOrEmptyList = (value) => {
     return isUndefinedOrNullOrEmpty(value) || isEmptyObject(value) || isUndefinedOrNullOrEmptyList(value)
 }
 
+export const isString = (string) => {
+    return Object.prototype.toString.call(string) === "[object String]"
+}
+
 export const copy = (value) => {
     return Object.assign({}, value)
 }
@@ -197,3 +201,10 @@ export const getEndOfDay = (date) => {
     var startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     return new Date(startOfDay.getTime() + 86399999);
 }
+
+// default `_` will be replaced with ` `
+export const convertToCamelCase = (value = '', splitOn = '_', replaceWith = ' ') => {
+    return value
+        .split(splitOn)
+        .map(it => it.charAt(0).toUpperCase() + it.substr(1).toLowerCase()).join(replaceWith)
+} 

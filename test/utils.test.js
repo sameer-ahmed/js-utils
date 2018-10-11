@@ -308,14 +308,24 @@ test('Check if object is not isValidDate', () => {
 /****************** isValidDate */
 
 /****************** getStartOfDay */
-test('Check if it getStartOfDay working', () => {
+test('Check if getStartOfDay is working', () => {
     expect(lib.getStartOfDay(new Date()).getTime()).toBe(moment().startOf('day').toDate().getTime())
 })
 /****************** getStartOfDay */
 
 /****************** getEndOfDay */
-test('Check if it getStartOfDay working', () => {
+test('Check if getStartOfDay is working', () => {
     expect(lib.getEndOfDay(new Date()).getTime()).toBe(moment().endOf('day').toDate().getTime())
+})
+/****************** getEndOfDay */
+
+/****************** convertToCamelCase */
+test('Check if convertToCamelCase working', () => {
+    expect(lib.convertToCamelCase('SAMEER_AHMED_SHEIKH')).toBe('Sameer Ahmed Sheikh')
+    expect(lib.convertToCamelCase('SAMEER_AHMED_SHEIKH', '_', '&&')).toBe('Sameer&&Ahmed&&Sheikh')
+    expect(lib.convertToCamelCase('SAMEER$$AHMED$$SHEIKH', '$$', '_')).toBe('Sameer_Ahmed_Sheikh')
+    expect(lib.convertToCamelCase('', '$$', '_')).toBe('')
+    expect(lib.convertToCamelCase('')).toBe('')
 })
 /****************** getEndOfDay */
 
